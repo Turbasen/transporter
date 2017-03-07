@@ -1,0 +1,9 @@
+nodes:
+  source:
+    type: mongodb
+    uri: ${MONGO_URI_SOURCE}
+    timeout: 30s
+    tail: true
+  sink:
+    type: mongodb
+    uri: ${MONGO_URI_SINK}
