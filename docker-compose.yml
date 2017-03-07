@@ -11,4 +11,4 @@ services:
     volumes:
       - .:/usr/src/app
     env_file: .env
-    command: transporter run --config sync-api-users.yml sync-api-users.js
+    command: transporter test --config api-users.yml api-users.js
