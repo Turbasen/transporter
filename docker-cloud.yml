@@ -1,7 +1,7 @@
 api-users:
   autoredeploy: true
   command: transporter run --config api-users.yml api-users.js
-  image: turistforeningen/transporter
+  image: turbasen/transporter
   restart: always
   tags:
     - app
