@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  transporter:
+    image: quay.io/compose/transporter:v0.2.0
+    network_mode: "bridge"
+    logging:
+      options:
+        max-size: "500k"
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
+    env_file: .env
+    command: transporter run --config sync-api-users.yml sync-api-users.js
