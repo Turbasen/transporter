@@ -1,4 +1,4 @@
-api-users:
+transporter-api-users:
   autoredeploy: true
   command: transporter run --config api-users.yml api-users.js
   image: turbasen/transporter
