@@ -10,4 +10,6 @@ COPY . /usr/src/app
 
 ENTRYPOINT ["/bin/sh", "-c"]
 
+RUN chmod +x entrypoint.sh
+
 CMD ["./entrypoint.sh"]
