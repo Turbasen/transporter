@@ -8,10 +8,10 @@ services:
       - /secrets
   transporter:
     image: quay.io/compose/transporter:v0.2.0
-    network_mode: "bridge"
+    network_mode: 'bridge'
     logging:
       options:
-        max-size: "500k"
+        max-size: '500k'
     working_dir: /usr/src/app
     volumes:
       - .:/usr/src/app
@@ -19,9 +19,9 @@ services:
     environment:
       - TRANSPORTER_ENVIRONMENT=development
     extra_hosts:
-      - "mongo-0.db.dnt.local:${DOCKER_IP}"
-      - "mongo-1.db.dnt.local:${DOCKER_IP}"
-      - "mongo-2.db.dnt.local:${DOCKER_IP}"
-      - "mongo-3.db.dnt.local:${DOCKER_IP}"
-      - "mongo-4.db.dnt.local:${DOCKER_IP}"
+      - 'mongo-0.db.dnt.local:${DOCKER_IP}'
+      - 'mongo-1.db.dnt.local:${DOCKER_IP}'
+      - 'mongo-2.db.dnt.local:${DOCKER_IP}'
+      - 'mongo-3.db.dnt.local:${DOCKER_IP}'
+      - 'mongo-4.db.dnt.local:${DOCKER_IP}'
     command: transporter test --config api-users.yml api-users.js
