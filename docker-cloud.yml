@@ -8,6 +8,7 @@ secrets:
 transporter-api-users:
   autoredeploy: true
   environment:
+    - TRANSPORTER_ENVIRONMENT=production
     - 'TRANSPORTER_CONFIG_FILE=api-users.yml'
     - 'TRANSPORTER_SCRIPT_FILE=api-users.js'
   image: turbasen/transporter

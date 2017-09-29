@@ -1,6 +1,11 @@
 version: '2'
 
 services:
+  secrets:
+    build: secrets
+    network_mode: 'bridge'
+    volumes:
+      - /secrets
   transporter:
     image: quay.io/compose/transporter:v0.2.0
     network_mode: "bridge"
@@ -11,6 +16,8 @@ services:
     volumes:
       - .:/usr/src/app
     env_file: secrets/development.env
+    environment:
+      - TRANSPORTER_ENVIRONMENT=development
     extra_hosts:
       - "mongo-0.db.dnt.local:${DOCKER_IP}"
       - "mongo-1.db.dnt.local:${DOCKER_IP}"
