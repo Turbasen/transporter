@@ -16,3 +16,5 @@ transporter-api-users:
   tags:
     - app
     - volume-2
+  volumes_from:
+    - 'secrets:ro'

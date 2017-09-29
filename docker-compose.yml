@@ -7,7 +7,7 @@ services:
     volumes:
       - /secrets
   transporter:
-    image: quay.io/compose/transporter:v0.2.0
+    build: .
     network_mode: 'bridge'
     logging:
       options:
@@ -15,9 +15,13 @@ services:
     working_dir: /usr/src/app
     volumes:
       - .:/usr/src/app
+    volumes_from:
+      - secrets:ro
     env_file: secrets/development.env
     environment:
+      - TRANSPORTER_CONFIG_FILE=api-users.yml
       - TRANSPORTER_ENVIRONMENT=development
+      - TRANSPORTER_SCRIPT_FILE=api-users.js
     extra_hosts:
       - 'mongo-0.db.dnt.local:${DOCKER_IP}'
       - 'mongo-1.db.dnt.local:${DOCKER_IP}'
