@@ -10,5 +10,11 @@ services:
     working_dir: /usr/src/app
     volumes:
       - .:/usr/src/app
-    env_file: .env
+    env_file: secrets/development.env
+    extra_hosts:
+      - "mongo-0.db.dnt.local:${DOCKER_IP}"
+      - "mongo-1.db.dnt.local:${DOCKER_IP}"
+      - "mongo-2.db.dnt.local:${DOCKER_IP}"
+      - "mongo-3.db.dnt.local:${DOCKER_IP}"
+      - "mongo-4.db.dnt.local:${DOCKER_IP}"
     command: transporter test --config api-users.yml api-users.js

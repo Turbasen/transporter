@@ -1,7 +1,17 @@
+secrets:
+  image: 'turistforeningen/transporter-secrets:v1'
+  tags:
+    - app
+    - volume-2
+  volumes:
+    - /secrets
 transporter-api-users:
   autoredeploy: true
-  command: transporter run --config api-users.yml api-users.js
+  environment:
+    - 'TRANSPORTER_CONFIG_FILE=api-users.yml'
+    - 'TRANSPORTER_SCRIPT_FILE=api-users.js'
   image: turbasen/transporter
   restart: always
   tags:
     - app
+    - volume-2

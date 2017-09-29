@@ -7,3 +7,7 @@ WORKDIR /usr/src/app
 
 # Copy the application source code
 COPY . /usr/src/app
+
+ENTRYPOINT ["/bin/sh", "-c"]
+
+CMD ["./entrypoint.sh"]
